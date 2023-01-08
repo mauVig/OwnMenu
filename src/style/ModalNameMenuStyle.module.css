@@ -1,0 +1,19 @@
+.titleS{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+    align-items: center;
+}
+
+/* className='my-8  text-gray-800 rounded-lg hover:bg-orange-300 w-2/3  truncate' */
+.buttonS{
+    padding: .8rem ;
+    background: #fb923c;
+    margin: 32px 0;
+    color:#1f2937;
+}
+.buttonS:hover{
+    background: #fdba74;
+}
+
+

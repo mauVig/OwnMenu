@@ -52,7 +52,6 @@ export default function Home() {
                 variant='contained'
                 className='my-4 bg-orange-400 px-24 py-2 text-gray-800 rounded-lg hover:bg-orange-300 transition-all duration-100'
                 onClick={handlerButtonGoogle}
-                // loading={loading}
               >
                 Ingresar
               </Button>

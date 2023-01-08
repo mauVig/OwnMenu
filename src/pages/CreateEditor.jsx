@@ -11,17 +11,13 @@ export default function MenuEditor() {
           <div className='max-w-7xl mx-auto text-center'>
             <div className='py-4'>
               <h1 className='text-4xl '>Crear menu</h1>
-              <p>Aca podes agregar tus comidas, bebidas o postres a tu menu.</p>
+              <div className='flex justify-center'>
+                <p className=' w-80 text-center'>
+                  Aca podes agregar tus comidas, bebidas o postres a tu menu.
+                </p>
+              </div>
             </div>
-
-            <p>
-              Elija un menu
-            </p>
-
-            
-
             <ModalNameMenu openParam={open} />
-
             <CreateMenu />
           </div>
         </div>
@@ -30,9 +26,9 @@ export default function MenuEditor() {
   );
 }
 
-const menu =[
-  {
-    id:1,
-    name:'Cafecitos'
-  }
-]
+// const menu =[
+//   {
+//     id:1,
+//     name:'Cafecitos'
+//   }
+// ]

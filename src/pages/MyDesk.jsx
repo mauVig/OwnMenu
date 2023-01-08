@@ -9,7 +9,7 @@ export default function MyDesk() {
       <div className='bg-stone-100'>
         <div className=' px-4 xl:px-0'>
           <h1 className='text-2xl text-center '>Hola {user.displayName} !!</h1>
-          <div className='flex flex-col px-[10%]'>
+          <div className='flex flex-col  px-[10%]'>
             <Button className='my-4 bg-rose-600  px-24 text-gray-100 rounded-lg hover:bg-rose-500 transition-all duration-100 py-5'>
               Iniciar un cajero
             </Button>

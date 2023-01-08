@@ -8,10 +8,11 @@ import MenuEditor from './pages/CreateEditor';
 import AddProductStep1 from './pages/AddProductStep1'
 import AddProductStep2 from './pages/AddProductStep2'
 import AddProductStep3 from './pages/AddProductStep3';
-import FinalProductStep from './pages/FinalProductStep'
+import FinalProductStep from './pages/FinalProductStep';
+
 function App() {
-  const { googleLogOut } = UseAuthContext();
-  
+  const { googleLogOut } = UseAuthContext();  
+  document.title = 'Menu'
   useEffect(() => {
     googleLogOut()
   }, []);
