@@ -4,20 +4,28 @@ import { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import styled from '@emotion/styled';
 import st from '../../style/ModalNameMenuStyle.module.css';
+import xtypejs from 'xtypejs';
 
-export default function ModalNameMenu({ openParam }) {
+export default function ModalNameMenu({ openParam, callback }) {
   const [open, setOpen] = useState(openParam);
-  const handleOpen = () => setOpen(true);
+  const [titleValid, setTitleValid] = useState('');
   const handleClose = () => setOpen(false);
   const [title, setTitle] = useState('');
 
   const handlerIn = () => {
-    setOpen(false)
-  }
+    if (title !== '' || xtypejs.type(parseInt(title)) !== 'number') {
+      setOpen(false);
+      callback(title);
+      console.log('si');
+    } else {
+      setOpen(true);
+      console.log('no');
+    }
+  };
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -34,16 +42,12 @@ export default function ModalNameMenu({ openParam }) {
             onChange={(e) => setTitle(e.target.value)}
             // value={edit ? title : ''}
             defaultValue={title}
-            // helperText={titleValid}
-            // error={titleValid === '' ? false : true}
+            helperText={titleValid}
+            error={titleValid === '' ? false : true}
             // onBlur={handlerText}
             autoFocus
           />
-          <Button
-            onClick={handlerIn}
-            className={st.buttonS}
-            fullWidth
-          >
+          <Button onClick={handlerIn} className={st.buttonS} fullWidth>
             Ingresar
           </Button>
         </Box>
