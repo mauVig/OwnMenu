@@ -9,6 +9,8 @@ import AddProductStep1 from './pages/AddProductStep1'
 import AddProductStep2 from './pages/AddProductStep2'
 import AddProductStep3 from './pages/AddProductStep3';
 import FinalProductStep from './pages/FinalProductStep';
+import ChooseMenu from './pages/ChooseMenu';
+import StartMenu from './pages/StartMenu';
 
 function App() {
   const { googleLogOut } = UseAuthContext();  
@@ -27,6 +29,8 @@ function App() {
         <Route path='/createEditor/addProductStep2' element={<AddProductStep2 />} />
         <Route path='/createEditor/addProductStep3' element={<AddProductStep3 />} />
         <Route path='/createEditor/finalProductStep' element={<FinalProductStep />} />
+        <Route path='/chooseMenu' element={<ChooseMenu />} />
+        <Route path='/startMenu' element={<StartMenu />} />
         <Route path='/myDesk' element={<MyDesk />} />
       </Routes>
     </>

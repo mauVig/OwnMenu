@@ -10,10 +10,9 @@ import '../style/step1.css';
 
 export default function AddProductStep1() {
   const [data, setData] = useState(false);
-  const [title, setTitle] = useState(data ? data.name : '');
-  const [prize, setPrize] = useState(data ? data.prize : '');
-  const [cost, setCost] = useState(!data ? data.cost : '');
-  console.log(data, '___cost');
+  const [title, setTitle] = useState('');
+  const [prize, setPrize] = useState('');
+  const [cost, setCost] = useState('');
   const [titleValid, setTitleValid] = useState('');
   const [prizeValid, setPrizeValid] = useState('');
   const [costValid, setCostValid] = useState('');

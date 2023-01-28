@@ -7,7 +7,7 @@ export default function MenuEditor() {
   return (
     <>
       <div>
-        <div className={`px-4 xl:px-0`}>
+        <div className='px-4 xl:px-0'>
           <div className='max-w-7xl mx-auto text-center'>
             <div className='pt-4'>
               <h1 className='text-4xl mb-8'>Crear menu</h1>
@@ -25,4 +25,3 @@ export default function MenuEditor() {
     </>
   );
 }
-
