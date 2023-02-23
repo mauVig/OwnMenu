@@ -13,10 +13,10 @@ export default function FinalProductStep() {
   const step3 = localStorage.getItem('step3');
   const svg = getSvg(step3);
   const go = useNavigate();
-
+  console.log(step1,'--step1')
   const objFinal = {
     ...step1,
-    cost: parseInt(step1.cost),
+    // cost: parseInt(step1.cost),
     label,
     svg: svg[0].svg,
     labelId:step2,

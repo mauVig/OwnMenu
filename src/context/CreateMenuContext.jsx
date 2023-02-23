@@ -4,35 +4,39 @@ import { coffe, coffe2, coffeCold, plateMeal } from '../components/svgIcons.js';
 export const CreateMenu = createContext();
 
 export const CreateMenuProvider = ({ children }) => {
-  const [labels, setLabels] = useState(conLabels);
+  const [labelsC, setLabelsC] = useState(conLabels);
   const [allMenu, setAllMenu] = useState([]);
-  const [productMenu, setProductMenu] = useState();
+  // const [productMenu, setProductMenu] = useState();  
 
   const getLabel = (id) => {
-    const auxId = parseInt(id)
+    const auxId = parseInt(id);
     const text = conLabels.filter((label) => label.id === auxId);
-    return text[0].name
-  }
-  
-  const getSvg = (id) => {
-    const auxId = parseInt(id)
-    const svg = iconsSvg.filter((icon) => icon.id === auxId);
-    return svg
+    return text[0].name;
   };
 
   const getAllLabels = () => {
-    return conLabels;
+    console.log(labelsC, '--labelsC');
+    return labelsC;
+  };
+
+  const addLabels = (text) => {
+    const id = new Date().getTime();
+    setLabelsC([...labelsC, { id, name: text }]);
+  };
+
+  const getSvg = (id) => {
+    const auxId = parseInt(id);
+    const svg = iconsSvg.filter((icon) => icon.id === auxId);
+    return svg;
+  };
+  // CRUD de menu
+
+  const addProductMenu = (obj) => {
+    setAllMenu([...allMenu, obj]);
   };
 
   // CRUD de menu
 
-  const addProductMenu = (obj) => {
-    setAllMenu([...allMenu,obj])
-  }
-
-
-  // CRUD de menu
-  
   return (
     <CreateMenu.Provider
       value={{
@@ -40,7 +44,9 @@ export const CreateMenuProvider = ({ children }) => {
         getSvg,
         getAllLabels,
         allMenu,
-        addProductMenu
+        addProductMenu,
+        addLabels,
+        labelsC,
       }}
     >
       {children}

@@ -12,10 +12,18 @@ export default function MenuUser() {
 
   return (
     <>
-      {user && (
+      {user ? (
         <div className='flex items-center gap-2 relative'>
-          <div className='bg-neutral-300 p-2 rounded-full'>
-            <AiOutlineUser className='text-neutral-500 ' />
+          <div className='bg-neutral-300 rounded-full'>
+            {user.providerData[0].photoURL ? (
+              <img
+                src={user.providerData[0].photoURL}
+                alt=''
+                className='w-full rounded-full w-8'
+              />
+            ) : (
+              <AiOutlineUser className='text-neutral-500 ' />
+            )}
           </div>
           <span>Hola, {user.displayName} !</span>
           <button
@@ -25,8 +33,9 @@ export default function MenuUser() {
             Cerrar Sesion
           </button>
         </div>
+      ) : (
+        <div></div>
       )}
-      {!user && <div></div>}
     </>
   );
 }

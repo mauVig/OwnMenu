@@ -1,14 +1,19 @@
 import styled from '@emotion/styled';
 import { Autocomplete, Button, TextField } from '@mui/material';
+import { GrAdd } from 'react-icons/gr';
 
 export default function SearchProduct() {
+  const handlerAdd = () =>{
+    
+  }
   return (
     <>
       <Autocomplete
         disablePortal
         id='combo-box-demo'
         options={top100Films}
-        sx={{ width: 300 }}
+        // sx={{ width: 300 }}
+        fullWidth
         renderInput={(params) => (
           <CssTextField
             label='Buscar producto'
@@ -22,9 +27,17 @@ export default function SearchProduct() {
             // error={titleValid === '' ? false : true}
             // onBlur={handlerText}
             autoFocus
+            {...params}
           />
         )}
       />
+      <Button
+        onClick={handlerAdd}
+        className='my-4 bg-orange-400 px-24 py-4 text-gray-800 rounded-lg hover:bg-orange-300 transition-all duration-100 w-2/3 lg:1/3 truncate '
+        startIcon={<GrAdd />}
+      >
+        Agregar producto
+      </Button>
     </>
   );
 }
@@ -50,6 +63,7 @@ const objCssField = {
 };
 
 const CssTextField = styled(TextField)(objCssField);
+
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
   { label: 'The Godfather', year: 1972 },

@@ -14,7 +14,7 @@ export default function CreateCard({ data, yesEdit }) {
         id: data.id,
         name: data.name,
         prize: parseFloat(data.prize),
-        cost:  parseFloat(data.cost),
+        // cost:  parseFloat(data.cost),
       };
       localStorage.setItem('step1', JSON.stringify(ibjStep1));
       go('/createEditor/addProductStep1');
@@ -33,10 +33,10 @@ export default function CreateCard({ data, yesEdit }) {
               {data.label}
             </p>
             <div className='flex justify-center gap-4 mt-4'>
-              <div>
+              {/* <div>
                 <p className='italic font-semibold'>Costo</p>
                 <p className='text-xl text-red'>${data.cost}</p>
-              </div>
+              </div> */}
               <div>
                 <p className='italic font-semibold'>Precio</p>
                 <p className='text-xl text-red'>${data.prize}</p>

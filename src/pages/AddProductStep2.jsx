@@ -3,16 +3,14 @@ import styled from '@emotion/styled';
 import { Button, TextField } from '@mui/material';
 import { GrAdd } from 'react-icons/gr';
 import { BsArrowLeftShort } from 'react-icons/bs';
-
 import LabText from '../components/createMenu/LabText';
 import { UseContextMenu } from '../context/CreateMenuContext';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function AddProductStep2() {
   const [labels, setLabels] = useState([]);
   const [text, setText] = useState('');
-  const { getAllLabels } = UseContextMenu();
+  const { getAllLabels, addLabels } = UseContextMenu();
   const refText = useRef();
   const go = useNavigate();
 
@@ -21,10 +19,11 @@ export default function AddProductStep2() {
   }, []);
 
   const hanlerAddLabels = () => {
-    const id = new Date().getTime();
     if (text !== '') {
-      setLabels([...labels, { id, name: text }]);
-      setText('');
+      addLabels(text);
+      const id = new Date().getTime();
+      localStorage.setItem('step2', JSON.stringify(id));
+      go('/createEditor/addProductStep3');
     }
   };
 
@@ -33,13 +32,21 @@ export default function AddProductStep2() {
       <div className='px-4 xl:px-0'>
         <div className='max-w-7xl mx-auto text-center'>
           <div className='mt-16'>
-            <h2 className='mb-16 text-2xl'>Eleji una etiqueta</h2>
-
+            <h2 className='mb-16 text-2xl'>
+              {labels ? 'Eleji una etiqueta' : 'Escribi una etiqueta'}
+            </h2>
             <div className='flex  flex-wrap mb-16'>
               {labels.map((label) => (
                 <LabText key={label.id} id={label.id} text={label.name} />
               ))}
             </div>
+            {text !== '' ? (
+              <span className='py-2 text-black m-4 bg-red-200 px-2 rounded-lg font-semibold uppercase'>
+                {text}
+              </span>
+            ) : (
+              ''
+            )}
             <div>
               <CssTextField
                 label='Agregar etiqueta nueva'
@@ -51,7 +58,6 @@ export default function AddProductStep2() {
                 ref={refText}
               />
             </div>
-
             <div className='flex flex-col items-center'>
               <Button
                 onClick={hanlerAddLabels}

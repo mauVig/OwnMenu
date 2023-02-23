@@ -1,8 +1,6 @@
 import CreateMenu from '../components/createMenu/CreateMenu';
 import NameMenu from '../components/createMenu/NameMenu';
 
-//BiBeer
-// GiMeal
 export default function MenuEditor() {
   return (
     <>
@@ -12,8 +10,8 @@ export default function MenuEditor() {
             <div className='pt-4'>
               <h1 className='text-4xl mb-8'>Crear menu</h1>
               <div className='flex justify-center'>
-                <p className='w-80 text-center'>
-                  Aca podes agregar tus comidas, bebidas o postres a tu menu.
+                <p className='w-48'>
+                  Aca podes agregar tus productos a tu menu.
                 </p>
               </div>
               <NameMenu />

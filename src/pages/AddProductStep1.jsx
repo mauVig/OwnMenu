@@ -9,13 +9,13 @@ import xtypejs from 'xtypejs';
 import '../style/step1.css';
 
 export default function AddProductStep1() {
-  const [data, setData] = useState(false);
+  // const [data, setData] = useState(false);
   const [title, setTitle] = useState('');
   const [prize, setPrize] = useState('');
-  const [cost, setCost] = useState('');
+  // const [cost, setCost] = useState('');
   const [titleValid, setTitleValid] = useState('');
   const [prizeValid, setPrizeValid] = useState('');
-  const [costValid, setCostValid] = useState('');
+  // const [costValid, setCostValid] = useState('');
 
   const go = useNavigate();
 
@@ -35,37 +35,36 @@ export default function AddProductStep1() {
     }
   };
 
-  const handlerCost = () => {
-    if (cost === '' || xtypejs.type(parseInt(cost)) !== 'number') {
-      setCostValid('Ingrese un numero para el costo');
-    } else {
-      setCostValid('');
-    }
-  };
-  // setTitle(data.name);
-  // setPrize(data.prize);
-  // setCost(data.cost);
+  // const handlerCost = () => {
+  //   if (cost === '' || xtypejs.type(parseInt(cost)) !== 'number') {
+  //     setCostValid('Ingrese un numero para el costo');
+  //   } else {
+  //     setCostValid('');
+  //   }
+  // };
+
   const handlerSubmit = () => {
-    if (title !== '' && prize !== '' && cost !== '') {
+    // (title !== '' && prize !== '' && cost !== '') {
+    if (title !== '' && prize !== '') {
       const id = new Date().getTime();
       const data = {
         id,
         name: title,
         prize,
-        cost,
+        // cost,
       };
       localStorage.setItem('step1', JSON.stringify(data));
       go('/createEditor/addProductStep2');
     } else {
       setTitleValid('Escriba un texto para el titulo');
       setPrizeValid('Ingrese un numero para el precio');
-      setCostValid('Ingrese un numero para el costo');
+      // setCostValid('Ingrese un numero para el costo');
     }
   };
 
   useEffect(() => {
     if (localStorage.getItem('step1')) {
-      setData(JSON.parse(localStorage.getItem('step1')));
+      JSON.parse(localStorage.getItem('step1'));
     }
   }, []);
 
@@ -82,13 +81,12 @@ export default function AddProductStep1() {
                   fullWidth
                   className='my-5'
                   onChange={(e) => setTitle(e.target.value)}
-                  // value={edit ? title : ''}
                   defaultValue={title}
                   helperText={titleValid}
                   error={titleValid === '' ? false : true}
                   onBlur={handlerText}
                   autoFocus
-                /> 
+                />
               </div>
               <div>
                 <CssTextField
@@ -103,7 +101,7 @@ export default function AddProductStep1() {
                   onBlur={handlerPrize}
                 />
               </div>
-              <div>
+              {/* <div>
                 <CssTextField
                   label='Costo'
                   id='custom-css-outlined-input'
@@ -115,7 +113,7 @@ export default function AddProductStep1() {
                   error={costValid === '' ? false : true}
                   onBlur={handlerCost}
                 />
-              </div>
+              </div> */}
             </div>
             <div className='flex flex-col items-center'>
               <Button

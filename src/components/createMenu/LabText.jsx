@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 export default function LabText({ id, text }) {
   const go = useNavigate();
   const handlerText = () => {
@@ -10,7 +11,7 @@ export default function LabText({ id, text }) {
   return (
     <>
       <Button
-        className='py-2 text-black m-4 bg-red-200 px-2 rounded-lg text-smz'
+        className='py-2 text-black m-4 bg-red-200 px-2 rounded-lg text-sm'
         onClick={handlerText}
       >
         {text}
