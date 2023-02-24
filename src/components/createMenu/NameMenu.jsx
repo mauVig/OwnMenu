@@ -9,7 +9,8 @@ export default function NameMenu() {
 
   const handlerText = () => {
     if (title === '' || xtypejs.type(parseInt(title)) === 'number') {
-        setTitleValid(true)
+        setTitleValid(true);
+        localStorage.setItem()
     } else {
         setTitleValid(false);
     }

@@ -22,7 +22,7 @@ export default function MenuUser() {
                 className='w-full rounded-full w-8'
               />
             ) : (
-              <AiOutlineUser className='text-neutral-500 ' />
+              <AiOutlineUser className='text-neutral-500' />
             )}
           </div>
           <span>Hola, {user.displayName} !</span>

@@ -5,9 +5,8 @@ import {
   onAuthStateChanged,
   signInWithRedirect,
 } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase';
 
 // import { useNavigate } from 'react-router-dom';
 
@@ -34,9 +33,19 @@ export const GoogleContextProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
         setLogInFlag(true);
-        console.log(currentUser, '--currentUser');
-        // const emailIdAndDB = doc(db,`user/${currentUser.displayName}`);
-        // setDoc(emailIdAndDB)
+
+        const emailIdAndDB = doc(db, `users/${currentUser.email}`);
+        const docData = {
+          nickName: currentUser.displayName,
+          email: currentUser.email,
+          photoURL: currentUser.photoURL,
+        };
+
+        try {
+          setDoc(emailIdAndDB, docData);
+        } catch (error) {
+          console.log('Error:' + error);
+        }
       }
     });
     return () => {
