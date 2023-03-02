@@ -16,7 +16,7 @@ export default function FinalProductStep() {
 
   const objFinal = {
     ...step1,
-    // cost: parseInt(step1.cost),
+    // cost: parseInt(step1.cost), 
     label,
     svg: svg[0].svg,
     labelId:step2,

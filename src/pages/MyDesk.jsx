@@ -7,13 +7,17 @@ export default function MyDesk() {
   return (
     <>
       <div className='px-4 xl:px-0'>
-        <h1 className='text-2xl text-center my-4'>
-          Hola{' '}
-          <span className='border-2 border-orange-400 rounded px-4'>
-            {user.displayName}
-          </span>
-        </h1>
-        <div className='flex justify-center '>
+        {user.displayName ? (
+          <h1 className='text-2xl text-center my-4'>
+            Hola{' '}
+            <span className='border-2 border-orange-400 rounded px-4'>
+              {user.displayName}
+            </span>
+          </h1>
+        ) : (
+          ''
+        )}
+        <div className='flex justify-center'>
           <div className='flex flex-col gap-4 px-[10%]'>
             <Button
               className='bg-rose-600 md:w-1/2 px-24 text-gray-100 rounded-lg hover:bg-rose-500 transition-all duration-100 py-3 mx-auto'
@@ -32,4 +36,15 @@ export default function MyDesk() {
       </div>
     </>
   );
+}
+{
+  /* 
+<ModalYesNo
+  st={{ background: '#fb923c' }}
+  msjModal='Desea guardar el menu?'
+  msjButton='Guardar'
+  acept={() => go('/createEditor')}
+/>
+
+; */
 }

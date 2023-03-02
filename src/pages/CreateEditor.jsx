@@ -1,6 +1,6 @@
 import CreateMenu from '../components/createMenu/CreateMenu';
 import NameMenu from '../components/createMenu/NameMenu';
-
+import ModalYesNo from '../components/tools/ModalYesNo';
 export default function MenuEditor() {
   return (
     <>
@@ -16,10 +16,24 @@ export default function MenuEditor() {
               </div>
               <NameMenu />
             </div>
+            <ModalYesNo
+              st={{ background: '#fb923c' }}
+              msjModal='Desea guardar el menu?'
+              msjButton='Guardar'
+              // acept={() => go('/createEditor')}
+            />
             <CreateMenu />
           </div>
         </div>
       </div>
     </>
   );
+}
+{
+  /* <ModalYesNo
+  st={{ background: '#fb923c' }}
+  msjModal='Desea guardar el menu?'
+  msjButton='Guardar'
+  acept={() => go('/createEditor')}
+/> */
 }
