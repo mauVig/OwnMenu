@@ -1,0 +1,43 @@
+.ModalYesNoDiv{
+    display: flex;
+    justify-content: center;
+}
+.ModalYesNoDiv2{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+
+/* --------- */
+.cancelO{
+    color:#fb923c;
+    padding: .6rem 2rem;
+}
+.cancelR{
+    color:#e11d48;
+    padding: .6rem 2rem;
+}
+/* --------- */
+.aceptO{
+    background: #fb923c;
+    color:#262626;
+    padding: 0 2rem;
+}
+.aceptO:hover{
+    background: #fdba74;
+}
+/* --------- */
+.aceptR{
+    background: #e11d48;
+    color:#f3f4f6;
+    padding: 0 2rem;
+}
+.aceptR:hover{
+    background: #f43f5e;
+}
+/* --------- */
+
+
+/* TGray- f3f4f6 */
+/* bg rose f43f5e */

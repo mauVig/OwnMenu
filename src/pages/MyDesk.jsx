@@ -37,14 +37,3 @@ export default function MyDesk() {
     </>
   );
 }
-{
-  /* 
-<ModalYesNo
-  st={{ background: '#fb923c' }}
-  msjModal='Desea guardar el menu?'
-  msjButton='Guardar'
-  acept={() => go('/createEditor')}
-/>
-
-; */
-}

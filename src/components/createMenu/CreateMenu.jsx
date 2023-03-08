@@ -17,12 +17,12 @@ export default function CreateMenu() {
 
   return (
     <>
-    
       <Button
         onClick={handlerAdd}
-        className='my-8 bg-orange-400 px-24 py-4 text-gray-800 rounded-lg hover:bg-orange-300 w-2/3'
+        className='bg-orange-400 md:w-1/2 px-24 hover:bg-orange-300 text-neutral-800 rounded-lg transition-all duration-100 py-3 mx-auto truncate'
       >
-        <GrAdd />
+        <GrAdd className='mb-1 mr-1' />
+        Agregar producto
       </Button>
       {allMenu.map((menu) => (
         <CreateCard data={menu} key={menu.id} yesEdit />

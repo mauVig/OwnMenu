@@ -6,7 +6,7 @@ export const CreateMenu = createContext();
 export const CreateMenuProvider = ({ children }) => {
   const [labelsC, setLabelsC] = useState(conLabels);
   const [allMenu, setAllMenu] = useState([]);
-  // const [productMenu, setProductMenu] = useState();  
+  // const [productMenu, setProductMenu] = useState();
 
   const getLabel = (id) => {
     const auxId = parseInt(id);
@@ -35,6 +35,10 @@ export const CreateMenuProvider = ({ children }) => {
     setAllMenu([...allMenu, obj]);
   };
 
+  const delProductMenu = (id) => {
+    return setAllMenu(allMenu.filter((menu) => menu.id !== id));
+  };
+
   // CRUD de menu
 
   return (
@@ -47,6 +51,7 @@ export const CreateMenuProvider = ({ children }) => {
         addProductMenu,
         addLabels,
         labelsC,
+        delProductMenu
       }}
     >
       {children}

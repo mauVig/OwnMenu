@@ -7,14 +7,20 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import st from '../../style/ModalYesNo.module.css';
 
-export default function ModalYesNo({ msjModal, msjButton, acept, st }) {
+export default function ModalYesNo({
+  msjModal,
+  msjButton,
+  acept,
+  classM,
+  red,
+}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen} style={st}>
+      <Button onClick={handleOpen} className={classM} style={{ width: '100%   ' }}>
         {msjButton}
       </Button>
       <Modal
@@ -37,10 +43,13 @@ export default function ModalYesNo({ msjModal, msjButton, acept, st }) {
             </Typography>
             <Typography id='transition-modal-description' sx={{ mt: 2 }}>
               <div className={st.ModalYesNoDiv2}>
-                <Button className={st.cancel} onClick={handleClose}>
+                <Button
+                  className={red ? st.cancelR : st.cancerO}
+                  onClick={handleClose}
+                >
                   Cancelar
                 </Button>
-                <Button className={st.acept} onClick={acept}>
+                <Button className={red ? st.aceptR : st.aceptO} onClick={acept}>
                   Aceptar
                 </Button>
               </div>
