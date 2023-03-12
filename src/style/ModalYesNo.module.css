@@ -1,6 +1,7 @@
 .ModalYesNoDiv{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .ModalYesNoDiv2{
     display: flex;

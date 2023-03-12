@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import { FiEdit } from 'react-icons/fi';
 import { AiFillDelete } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
@@ -54,11 +53,11 @@ export default function CreateCard({ data }) {
             </div>
           </div>
           <ModalYesNo
-            msjModal={`Desa borrar ${data.name}`}
+            msjModal={`Realmente desa borrar ${data.name} ???`}
             msjButton={
               // eslint-disable-next-line react/jsx-pascal-case
               <Icon.delet
-                className='text-gray-800 items-center'
+                className='text-red-600 items-center'
                 style={{
                   width: '100%',
                   height: '100%',

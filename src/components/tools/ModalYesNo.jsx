@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import st from '../../style/ModalYesNo.module.css';
+import { AiFillWarning } from 'react-icons/ai';
 
 export default function ModalYesNo({
   msjModal,
@@ -20,7 +21,7 @@ export default function ModalYesNo({
 
   return (
     <div>
-      <Button onClick={handleOpen} className={classM} style={{ width: '100%   ' }}>
+      <Button onClick={handleOpen} className={classM}>
         {msjButton}
       </Button>
       <Modal
@@ -37,9 +38,12 @@ export default function ModalYesNo({
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={red ? styleRed : style}>
             <Typography id='transition-modal-title' variant='h6' component='h2'>
-              <div className={st.ModalYesNoDiv}>{msjModal}</div>
+              <div className={st.ModalYesNoDiv}>
+                {red && <AiFillWarning className='text-rose-600 mr-12' />}
+                <span>{msjModal}</span>
+              </div>
             </Typography>
             <Typography id='transition-modal-description' sx={{ mt: 2 }}>
               <div className={st.ModalYesNoDiv2}>
@@ -68,6 +72,17 @@ const style = {
   width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
+  boxShadow: 24,
+  p: 3,
+};
+const styleRed = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #e11d48',
   boxShadow: 24,
   p: 3,
 };
